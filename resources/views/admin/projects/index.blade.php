@@ -36,23 +36,22 @@
                         <td>{{$project->authors}}</td>
                         <td><a href="{{$project->projectlink}}">{{$project->projectlink}}</a></td>
                         <td><a href="{{$project->githublink}}">{{$project->githublink}}</a></td>
-                        <td class="d-flex">
-    
-                            <form action="{{route("project.show", [$project->id])}}">
-    
-                                <button class="bg-success mb-3 border-0 py-1 px-4 rounded" type="submit"><i class="fa-solid fa-eye"></i></button>
-                            </form>
-    
-                            <form class="mx-2" action="{{route("project.edit", [$project->id])}}">
-    
-                                <button class="bg-warning mb-3 border-0 py-1 px-4 rounded" type="submit"><i class="fa-solid fa-pen-to-square"></i></button>
-                            </form>
-    
-                            <form action="{{route("project.destroy", [$project->id])}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button class="bg-danger mb-3 border-0 py-1 px-4 rounded" type="submit"><i class="fa-solid fa-trash-can"></i></button>
-                            </form>
+                        <td>
+                            <div class="d-flex">
+                                <form action="{{route("project.show", [$project->id])}}">
+                                    <button class="bg-success border-0 py-1 px-4 rounded" type="submit"><i class="fa-solid fa-eye"></i></button>
+                                </form>
+                            
+                                <form class="mx-2" action="{{route("project.edit", [$project->id])}}">
+                                    <button class="bg-warning border-0 py-1 px-4 rounded" type="submit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                </form>
+        
+                                <form action="{{route("project.destroy", [$project->id])}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="bg-danger border-0 py-1 px-4 rounded" type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

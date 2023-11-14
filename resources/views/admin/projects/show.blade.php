@@ -14,6 +14,7 @@
                 <th scope="col">AUTHOR</th>
                 <th scope="col">GITHUBLINK</th>
                 <th scope="col">PROJECTLINK</th>
+                <th scope="col">TIPOLOGY</th>
                 <th scope="col">TECNOLOGY</th>
 
             </tr>
@@ -27,6 +28,16 @@
                     <td><a href="{{$project->projectlink}}">{{$project->projectlink}}</a></td>
                     <td><a href="{{$project->githublink}}">{{$project->githublink}}</a></td>
                     <td>{{$project->type ? $project->type->type : 'tecnology not selected'}}</td>
+                    <td>
+                        @forelse ($project->technologies as $technology)
+                        <li class="badge bg-secondary">
+                            <i class="fas fa-tag fa-xs fa-fw"></i>
+                            {{ $technology->name_tech }}
+                        </li>
+                    @empty
+                        <li class="badge bg-secondary">Untagged</li>
+                    @endforelse
+                    </td>
                 </tr>
 
         </tbody>
