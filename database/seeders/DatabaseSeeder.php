@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use Database\Seeders\TechnologySeeder;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,6 +26,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             TypeSeeder::class
+        ]);
+
+        $this->call([
+            TechnologySeeder::class
         ]);
     }
 }
