@@ -65,8 +65,8 @@ class ProjectController extends Controller
         $project->title = $request->title;
         $project->authors = $request->authors;
         $project->type_id = $request->type_id;
-        $project->technologies()->attach($request->technologies);
         $project->save();
+        $project->technologies()->attach($request->technologies);
         return to_route('project.index');
 
     }
@@ -76,7 +76,8 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('admin.projects.show', compact('project'));
+        $technologies = Technology::all();
+        return view('admin.projects.show', compact('project', 'technologies'));
     }
 
     /**
@@ -110,7 +111,12 @@ class ProjectController extends Controller
             $data['thumb'] = $file_path;
         }
 
+        $project->technologies()->detach();
+
         $project->update($data);
+
+        $project->technologies()->attach($request->technologies);
+
         return redirect()->route('project.show', $project->id);
     }
 
@@ -119,6 +125,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        $project->technologies()->detach();
         $project->delete();
         return redirect()->route('project.index')->with('messaggio', 'hai cancellato il il fumetto con successo!');
     }
