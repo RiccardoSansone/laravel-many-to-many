@@ -22,8 +22,8 @@
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Authors</th>
-                    <th scope="col">Project link</th>
-                    <th scope="col">Github link</th>
+                    {{-- <th scope="col">Project link</th> --}}
+                    {{-- <th scope="col">Github link</th> --}}
                     <th></th>
                 </tr>
             </thead>
@@ -31,11 +31,11 @@
                 @foreach ($projects as $project)
                     <tr>
                         <td><img width="100" src="{{ asset('storage/' . $project->thumb) }}"></td>
-                        <td scope="row">{{$project->title}}</td>
-                        <td>{{$project->description}}</td>
-                        <td>{{$project->authors}}</td>
-                        <td><a href="{{$project->projectlink}}">{{$project->projectlink}}</a></td>
-                        <td><a href="{{$project->githublink}}">{{$project->githublink}}</a></td>
+                        <td class="text-wrap" scope="row">{{$project->title}}</td>
+                        <td class="text-wrap">{{$project->description}}</td>
+                        <td class="text-wrap">{{$project->authors}}</td>
+                        {{-- <td class="text-wrap"><a class="text-wrap" href="{{$project->projectlink}}">{{$project->projectlink}}</a></td>
+                        <td class="text-wrap"><a class="text-wrap" href="{{$project->githublink}}">{{$project->githublink}}</a></td> --}}
                         <td>
                             <div class="d-flex">
                                 <form action="{{route("project.show", [$project->id])}}">
@@ -58,7 +58,7 @@
     
             </tbody>
         </table>
-
+   
     {{$projects->links('pagination::bootstrap-5')}}
 
 </div>
