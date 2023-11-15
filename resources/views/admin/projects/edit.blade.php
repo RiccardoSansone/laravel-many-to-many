@@ -72,7 +72,7 @@
         <div class="mb-3">
             <label for="type_id" class="form-label">typologies</label>
             <select class="form-select @error('type_id') is-invalid  @enderror" name="type_id" id="type_id">
-                <option selected disabled>Select a tecnologies</option>
+                <option selected disabled>Select a typologies</option>
                 <option value="">Untyped</option>
         
                 @forelse ($types as $type)
@@ -94,7 +94,7 @@
             <div id="thumb_helper" class="form-text">Inserisci una immagine</div>
         </div>
 
-        <button type="submit" class="btn btn-primary 3">Add Project</button>
+        <button type="submit" class="btn btn-primary 3">Update Project</button>
     </form>
 </div>
 

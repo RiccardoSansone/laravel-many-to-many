@@ -127,6 +127,6 @@ class ProjectController extends Controller
     {
         $project->technologies()->detach();
         $project->delete();
-        return redirect()->route('project.index')->with('messaggio', 'hai cancellato il il fumetto con successo!');
+        return redirect()->route('project.index')->with('messaggio', 'hai cancellato il progetto con successo!');
     }
 }
